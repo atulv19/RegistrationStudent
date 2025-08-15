@@ -1,202 +1,202 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Registration Management</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <style>
-        :root { --bg:#0f172a; --card:#111827; --muted:#94a3b8; --ok:#16a34a; --warn:#f59e0b; --err:#ef4444; }
-        body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#0b1220;color:#e5e7eb;margin:0;min-height:100vh}
-        .wrap{max-width:960px;margin:40px auto;padding:0 16px}
-        h1{font-weight:700;letter-spacing:.3px}
-        .card{background:#0f172a;border:1px solid #1f2937;border-radius:16px;padding:16px 16px 10px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
-        .row{display:flex;gap:12px;flex-wrap:wrap}
-        input{background:#0b1328;border:1px solid #243045;color:#e5e7eb;border-radius:10px;padding:10px 12px;outline:none;min-width:200px}
-        input:focus{border-color:#3b82f6}
-        .btn{border:0;border-radius:10px;padding:10px 14px;cursor:pointer}
-        .btn-save{background:#3b82f6;color:#fff}
-        .btn-clear{background:#334155;color:#e5e7eb}
-        .btn-edit{background:#f59e0b;color:#111827}
-        .btn-del{background:#ef4444;color:#fff}
-        table{width:100%;border-collapse:separate;border-spacing:0 8px;margin-top:14px}
-        th,td{text-align:left;padding:12px 10px;background:#0b1328;border:1px solid #1f2937}
-        th{color:#cbd5e1;background:#0b152f}
-        tr td:first-child, tr th:first-child{border-top-left-radius:12px;border-bottom-left-radius:12px}
-        tr td:last-child, tr th:last-child{border-top-right-radius:12px;border-bottom-right-radius:12px}
-        .msg{margin:12px 0;padding:10px;border-radius:10px;display:none}
-        .msg.show{display:block}
-        .msg.ok{background:#052e1a;color:#86efac;border:1px solid #14532d}
-        .msg.err{background:#3b0a0a;color:#fecaca;border:1px solid #7f1d1d}
-    </style>
-</head>
-<body>
-<div class="wrap">
-    <h1>Registration Management</h1>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8" />-->
+<!--    <title>Registration Management</title>-->
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1" />-->
+<!--    <style>-->
+<!--        :root { &#45;&#45;bg:#0f172a; &#45;&#45;card:#111827; &#45;&#45;muted:#94a3b8; &#45;&#45;ok:#16a34a; &#45;&#45;warn:#f59e0b; &#45;&#45;err:#ef4444; }-->
+<!--        body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#0b1220;color:#e5e7eb;margin:0;min-height:100vh}-->
+<!--        .wrap{max-width:960px;margin:40px auto;padding:0 16px}-->
+<!--        h1{font-weight:700;letter-spacing:.3px}-->
+<!--        .card{background:#0f172a;border:1px solid #1f2937;border-radius:16px;padding:16px 16px 10px;box-shadow:0 10px 30px rgba(0,0,0,.25)}-->
+<!--        .row{display:flex;gap:12px;flex-wrap:wrap}-->
+<!--        input{background:#0b1328;border:1px solid #243045;color:#e5e7eb;border-radius:10px;padding:10px 12px;outline:none;min-width:200px}-->
+<!--        input:focus{border-color:#3b82f6}-->
+<!--        .btn{border:0;border-radius:10px;padding:10px 14px;cursor:pointer}-->
+<!--        .btn-save{background:#3b82f6;color:#fff}-->
+<!--        .btn-clear{background:#334155;color:#e5e7eb}-->
+<!--        .btn-edit{background:#f59e0b;color:#111827}-->
+<!--        .btn-del{background:#ef4444;color:#fff}-->
+<!--        table{width:100%;border-collapse:separate;border-spacing:0 8px;margin-top:14px}-->
+<!--        th,td{text-align:left;padding:12px 10px;background:#0b1328;border:1px solid #1f2937}-->
+<!--        th{color:#cbd5e1;background:#0b152f}-->
+<!--        tr td:first-child, tr th:first-child{border-top-left-radius:12px;border-bottom-left-radius:12px}-->
+<!--        tr td:last-child, tr th:last-child{border-top-right-radius:12px;border-bottom-right-radius:12px}-->
+<!--        .msg{margin:12px 0;padding:10px;border-radius:10px;display:none}-->
+<!--        .msg.show{display:block}-->
+<!--        .msg.ok{background:#052e1a;color:#86efac;border:1px solid #14532d}-->
+<!--        .msg.err{background:#3b0a0a;color:#fecaca;border:1px solid #7f1d1d}-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="wrap">-->
+<!--    <h1>Registration Management</h1>-->
 
-    <div id="msg" class="msg"></div>
+<!--    <div id="msg" class="msg"></div>-->
 
-    <div class="card">
-        <div class="row">
-            <input type="hidden" id="registrationId" />
-            <input id="name" placeholder="Name" />
-            <input id="email" type="email" placeholder="Email" />
-            <input id="mobile" placeholder="Mobile (10 digits)" maxlength="10" />
-        </div>
-        <div class="row" style="margin-top:10px">
-            <button class="btn btn-save" id="btnSave">Save</button>
-            <button class="btn btn-clear" id="btnClear">Clear</button>
-        </div>
-    </div>
+<!--    <div class="card">-->
+<!--        <div class="row">-->
+<!--            <input type="hidden" id="registrationId" />-->
+<!--            <input id="name" placeholder="Name" />-->
+<!--            <input id="email" type="email" placeholder="Email" />-->
+<!--            <input id="mobile" placeholder="Mobile (10 digits)" maxlength="10" />-->
+<!--        </div>-->
+<!--        <div class="row" style="margin-top:10px">-->
+<!--            <button class="btn btn-save" id="btnSave">Save</button>-->
+<!--            <button class="btn btn-clear" id="btnClear">Clear</button>-->
+<!--        </div>-->
+<!--    </div>-->
 
-    <div class="card" style="margin-top:18px">
-        <table>
-            <thead>
-            <tr>
-                <th style="width:80px">ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th style="width:140px">Mobile</th>
-                <th style="width:200px">Actions</th>
-            </tr>
-            </thead>
-            <tbody id="rows"></tbody>
-        </table>
-    </div>
-</div>
+<!--    <div class="card" style="margin-top:18px">-->
+<!--        <table>-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th style="width:80px">ID</th>-->
+<!--                <th>Name</th>-->
+<!--                <th>Email</th>-->
+<!--                <th style="width:140px">Mobile</th>-->
+<!--                <th style="width:200px">Actions</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody id="rows"></tbody>-->
+<!--        </table>-->
+<!--    </div>-->
+<!--</div>-->
 
-<script>
-    const API = "http://localhost:8080/api/v1/register";
-    const cache = new Map(); // id -> record
+<!--<script>-->
+<!--    const API = "http://localhost:8080/api/v1/register";-->
+<!--    const cache = new Map(); // id -> record-->
 
-    const $ = (id) => document.getElementById(id);
-    const msgBox = $("msg");
+<!--    const $ = (id) => document.getElementById(id);-->
+<!--    const msgBox = $("msg");-->
 
-    function showMsg(text, kind = "ok") {
-      msgBox.textContent = text;
-      msgBox.className = `msg show ${kind}`;
-      clearTimeout(showMsg._t);
-      showMsg._t = setTimeout(() => { msgBox.className = "msg"; }, 3500);
-    }
+<!--    function showMsg(text, kind = "ok") {-->
+<!--      msgBox.textContent = text;-->
+<!--      msgBox.className = `msg show ${kind}`;-->
+<!--      clearTimeout(showMsg._t);-->
+<!--      showMsg._t = setTimeout(() => { msgBox.className = "msg"; }, 3500);-->
+<!--    }-->
 
-    function escapeHtml(s){
-      return String(s ?? "").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-    }
+<!--    function escapeHtml(s){-->
+<!--      return String(s ?? "").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));-->
+<!--    }-->
 
-    async function loadAll() {
-      try {
-        const res = await fetch(API);
-        if (!res.ok) throw new Error(`GET failed: ${res.status}`);
-        const data = await res.json();
-        cache.clear();
-        data.forEach(r => cache.set(r.id, r));
-        render(data);
-      } catch (e) {
-        showMsg(e.message, "err");
-      }
-    }
+<!--    async function loadAll() {-->
+<!--      try {-->
+<!--        const res = await fetch(API);-->
+<!--        if (!res.ok) throw new Error(`GET failed: ${res.status}`);-->
+<!--        const data = await res.json();-->
+<!--        cache.clear();-->
+<!--        data.forEach(r => cache.set(r.id, r));-->
+<!--        render(data);-->
+<!--      } catch (e) {-->
+<!--        showMsg(e.message, "err");-->
+<!--      }-->
+<!--    }-->
 
-    function render(list) {
-      const tbody = $("rows");
-      tbody.innerHTML = "";
-      list.forEach(r => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td>${escapeHtml(r.id)}</td>
-          <td>${escapeHtml(r.name)}</td>
-          <td>${escapeHtml(r.email)}</td>
-          <td>${escapeHtml(r.mobile)}</td>
-          <td>
-            <button class="btn btn-edit" data-id="${r.id}">Edit</button>
-            <button class="btn btn-del" data-id="${r.id}">Delete</button>
-          </td>
-        `;
-        // attach handlers
-        tr.querySelector(".btn-edit").onclick = () => editById(r.id);
-        tr.querySelector(".btn-del").onclick = () => delById(r.id);
-        tbody.appendChild(tr);
-      });
-    }
+<!--    function render(list) {-->
+<!--      const tbody = $("rows");-->
+<!--      tbody.innerHTML = "";-->
+<!--      list.forEach(r => {-->
+<!--        const tr = document.createElement("tr");-->
+<!--        tr.innerHTML = `-->
+<!--          <td>${escapeHtml(r.id)}</td>-->
+<!--          <td>${escapeHtml(r.name)}</td>-->
+<!--          <td>${escapeHtml(r.email)}</td>-->
+<!--          <td>${escapeHtml(r.mobile)}</td>-->
+<!--          <td>-->
+<!--            <button class="btn btn-edit" data-id="${r.id}">Edit</button>-->
+<!--            <button class="btn btn-del" data-id="${r.id}">Delete</button>-->
+<!--          </td>-->
+<!--        `;-->
+<!--        // attach handlers-->
+<!--        tr.querySelector(".btn-edit").onclick = () => editById(r.id);-->
+<!--        tr.querySelector(".btn-del").onclick = () => delById(r.id);-->
+<!--        tbody.appendChild(tr);-->
+<!--      });-->
+<!--    }-->
 
-    function getFormPayload() {
-      const name = $("name").value.trim();
-      const email = $("email").value.trim();
-      const mobile = $("mobile").value.trim();
+<!--    function getFormPayload() {-->
+<!--      const name = $("name").value.trim();-->
+<!--      const email = $("email").value.trim();-->
+<!--      const mobile = $("mobile").value.trim();-->
 
-      if (!name) { showMsg("Name required", "err"); return null; }
-      if (!email || !/^\S+@\S+\.\S+$/.test(email)) { showMsg("Valid email required", "err"); return null; }
-      if (!/^\d{10}$/.test(mobile)) { showMsg("Mobile must be 10 digits", "err"); return null; }
-      return { name, email, mobile };
-    }
+<!--      if (!name) { showMsg("Name required", "err"); return null; }-->
+<!--      if (!email || !/^\S+@\S+\.\S+$/.test(email)) { showMsg("Valid email required", "err"); return null; }-->
+<!--      if (!/^\d{10}$/.test(mobile)) { showMsg("Mobile must be 10 digits", "err"); return null; }-->
+<!--      return { name, email, mobile };-->
+<!--    }-->
 
-    async function save() {
-      const id = $("registrationId").value;
-      const payload = getFormPayload();
-      if (!payload) return;
+<!--    async function save() {-->
+<!--      const id = $("registrationId").value;-->
+<!--      const payload = getFormPayload();-->
+<!--      if (!payload) return;-->
 
-      $("btnSave").disabled = true;
-      try {
-        if (id) {
-          // UPDATE
-          const res = await fetch(`${API}/${id}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-          });
-          if (!res.ok) throw new Error(`PUT failed: ${res.status}`);
-          showMsg("Updated successfully");
-        } else {
-          // CREATE
-          const res = await fetch(API, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-          });
-          if (!res.ok) throw new Error(`POST failed: ${res.status}`);
-          showMsg("Created successfully");
-        }
-        clearForm();
-        await loadAll();
-      } catch (e) {
-        showMsg(e.message, "err");
-      } finally {
-        $("btnSave").disabled = false;
-      }
-    }
+<!--      $("btnSave").disabled = true;-->
+<!--      try {-->
+<!--        if (id) {-->
+<!--          // UPDATE-->
+<!--          const res = await fetch(`${API}/${id}`, {-->
+<!--            method: "PUT",-->
+<!--            headers: { "Content-Type": "application/json" },-->
+<!--            body: JSON.stringify(payload)-->
+<!--          });-->
+<!--          if (!res.ok) throw new Error(`PUT failed: ${res.status}`);-->
+<!--          showMsg("Updated successfully");-->
+<!--        } else {-->
+<!--          // CREATE-->
+<!--          const res = await fetch(API, {-->
+<!--            method: "POST",-->
+<!--            headers: { "Content-Type": "application/json" },-->
+<!--            body: JSON.stringify(payload)-->
+<!--          });-->
+<!--          if (!res.ok) throw new Error(`POST failed: ${res.status}`);-->
+<!--          showMsg("Created successfully");-->
+<!--        }-->
+<!--        clearForm();-->
+<!--        await loadAll();-->
+<!--      } catch (e) {-->
+<!--        showMsg(e.message, "err");-->
+<!--      } finally {-->
+<!--        $("btnSave").disabled = false;-->
+<!--      }-->
+<!--    }-->
 
-    function editById(id) {
-      const r = cache.get(id);
-      if (!r) return;
-      $("registrationId").value = r.id;
-      $("name").value = r.name ?? "";
-      $("email").value = r.email ?? "";
-      $("mobile").value = r.mobile ?? "";
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+<!--    function editById(id) {-->
+<!--      const r = cache.get(id);-->
+<!--      if (!r) return;-->
+<!--      $("registrationId").value = r.id;-->
+<!--      $("name").value = r.name ?? "";-->
+<!--      $("email").value = r.email ?? "";-->
+<!--      $("mobile").value = r.mobile ?? "";-->
+<!--      window.scrollTo({ top: 0, behavior: "smooth" });-->
+<!--    }-->
 
-    async function delById(id) {
-      if (!confirm(`Delete record #${id}?`)) return;
-      try {
-        const res = await fetch(`${API}?id=${encodeURIComponent(id)}`, { method: "DELETE" });
-        if (!res.ok) throw new Error(`DELETE failed: ${res.status}`);
-        showMsg("Deleted successfully");
-        await loadAll();
-      } catch (e) {
-        showMsg(e.message, "err");
-      }
-    }
+<!--    async function delById(id) {-->
+<!--      if (!confirm(`Delete record #${id}?`)) return;-->
+<!--      try {-->
+<!--        const res = await fetch(`${API}?id=${encodeURIComponent(id)}`, { method: "DELETE" });-->
+<!--        if (!res.ok) throw new Error(`DELETE failed: ${res.status}`);-->
+<!--        showMsg("Deleted successfully");-->
+<!--        await loadAll();-->
+<!--      } catch (e) {-->
+<!--        showMsg(e.message, "err");-->
+<!--      }-->
+<!--    }-->
 
-    function clearForm() {
-      $("registrationId").value = "";
-      $("name").value = "";
-      $("email").value = "";
-      $("mobile").value = "";
-    }
+<!--    function clearForm() {-->
+<!--      $("registrationId").value = "";-->
+<!--      $("name").value = "";-->
+<!--      $("email").value = "";-->
+<!--      $("mobile").value = "";-->
+<!--    }-->
 
-    $("btnSave").addEventListener("click", save);
-    $("btnClear").addEventListener("click", clearForm);
+<!--    $("btnSave").addEventListener("click", save);-->
+<!--    $("btnClear").addEventListener("click", clearForm);-->
 
-    // initial fetch
-    loadAll();
-</script>
-</body>
-</html>
+<!--    // initial fetch-->
+<!--    loadAll();-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

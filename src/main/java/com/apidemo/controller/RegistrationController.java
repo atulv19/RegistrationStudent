@@ -48,4 +48,11 @@ public class RegistrationController {
       return new ResponseEntity<>(registrations,HttpStatus.OK);
     }
 
+    @GetMapping("/byId/{id}")
+    public ResponseEntity<Registration> getRegistration(@PathVariable long id) {
+        Registration registrationById = registrationService.getRegistrationById(id);
+        return new ResponseEntity<>(registrationById, HttpStatus.OK);
+    }
+
+
 }

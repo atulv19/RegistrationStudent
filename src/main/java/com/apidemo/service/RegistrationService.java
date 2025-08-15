@@ -1,6 +1,7 @@
 package com.apidemo.service;
 
 import com.apidemo.entity.Registration;
+import com.apidemo.exception.ResourceNotFoudException;
 import com.apidemo.payload.RegistrationDto;
 import com.apidemo.repository.RegistrationRepository;
 import org.springframework.stereotype.Service;
@@ -56,5 +57,12 @@ public class RegistrationService {
     public List<Registration> getAllRegistration() {
         List<Registration> registrations = registrationRepository.findAll();
         return registrations;
+    }
+
+    public Registration getRegistrationById(long id){
+        Registration reg = registrationRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoudException("Record not found")
+        );
+            return reg;
     }
 }
